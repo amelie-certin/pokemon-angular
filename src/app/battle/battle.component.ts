@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BattleComponent implements OnInit {
   pokemons = [
-    {name: 'Eevee', level: 5, hp: 20, hpMax: 20, attack: 20, defense: 20, speed: 20, moves: [{name: 'Nuzzle', power: 20}]},
-    {name: 'Pikachu', level: 5, hp: 20, hpMax: 20, attack: 20, defense: 20, speed: 20, moves: [{name: 'Thunder Shock', power: 40}]}
+    {name: 'Eevee', level: 5, hp: 20, maxHp: 20, attack: 20, defense: 20, speed: 20, moves: [{name: 'Nuzzle', power: 20}]},
+    {name: 'Pikachu', level: 5, hp: 20, maxHp: 20, attack: 20, defense: 20, speed: 20, moves: [{name: 'Thunder Shock', power: 40}]}
   ]
   constructor() { }
 
