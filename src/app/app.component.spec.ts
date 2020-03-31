@@ -2,6 +2,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import {PokemonPickerComponent} from "./pokemon-picker/pokemon-picker.component";
 import {BattleComponent} from "./battle/battle.component";
+import {PokemonComponent} from "./pokemon/pokemon.component";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -9,7 +10,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         PokemonPickerComponent,
-        // BattleComponent
+        BattleComponent,
+        PokemonComponent
       ],
     }).compileComponents();
   }));
