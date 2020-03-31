@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Move, MovePool } from '../../logic/move';
+import { Some } from '../../monad/maybe';
 
 @Component({
   selector: 'app-pokemon',
@@ -15,10 +17,15 @@ export class PokemonComponent implements OnInit {
   attack : number = 20;
   defense : number = 20;
   speed : number = 20;
+  moves : MovePool;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.moves = new MovePool(
+      new Move("Nuzzle", 20, 0, 20, 100),
+      new Some(new Move("Thunder Shock", 40, 0, 30, 100))
+    )
   }
 
 }
