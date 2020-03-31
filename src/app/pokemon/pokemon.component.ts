@@ -7,14 +7,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class PokemonComponent implements OnInit {
-  id = 1;
-  @Input() name = '';
-  level = 1;
-  hp = 20;
-  maxHp = 20;
-  attack = 20;
-  defense = 20;
-  speed = 20;
+  id : number = 1;
+  @Input() name : string = '';
+  level : number = 1;
+  hp : number = 20;
+  maxHp : number = 20;
+  attack : number = 20;
+  defense : number = 20;
+  speed : number = 20;
 
   constructor() { }
 

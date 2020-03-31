@@ -7,7 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Pokemon';
-  pokemon = {
-    name: 'Eevee'
-  }
 }
