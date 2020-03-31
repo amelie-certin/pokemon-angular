@@ -1,23 +1,24 @@
-<div class="pokemon-picker">
+<div class="app-picker">
   <div class="pokemon-picker first">
-    <div class="picker-grid" *ngFor="let pokemon of listPokemon; let i = index">
-      <button (click)="pickPokemon1(i)">
+    <div class="picker-grid" >
+      <button class="button-pick-pokemon" (click)="pickPokemon1(i)" *ngFor="let pokemon of listPokemon; let i = index">
         <img class="thumb-pokemon" [src]="pokemon.thumbnail"  />
       </button>
     </div>
-    <div class="info-pokemon" >
+    <div class="info-pokemon" *ngIf="pokemon1">
+      <app-pokemon [name]="pokemon1.name" [thumbnail]="pokemon1.thumbnail" ></app-pokemon>
     </div>
   </div>
   <div class="vs-separator"></div>
   <div class="pokemon-picker second">
-    <div class="picker-grid " *ngFor="let pokemon of listPokemon; let i = index">
-      <button (click)="pickPokemon2(i)">
+    <div class="picker-grid " >
+      <button class="button-pick-pokemon" (click)="pickPokemon2(i)" *ngFor="let pokemon of listPokemon; let i = index">
         <img class="thumb-pokemon" [src]="pokemon.thumbnail" />
       </button>
     </div>
-    <div class="info-pokemon">
+    <div class="info-pokemon" *ngIf="pokemon2">
+      <app-pokemon [name]="pokemon2.name" [thumbnail]="pokemon2.thumbnail" ></app-pokemon>
     </div>
   </div>
 </div>
-<h1>{{pokemon1?.name}}</h1>
-<h1>{{pokemon2?.name}}</h1>
+

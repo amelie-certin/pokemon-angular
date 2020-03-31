@@ -11,6 +11,13 @@ export class PokemonPickerComponent implements OnInit {
     {name: 'Raichu', thumbnail: 'https://www.poketools.fr/bundles/ptpoketools/images/pokemon/pokemon-sugimori-h100/026.png?v3.4.0'},
     {name: 'Sablerau', thumbnail: 'https://www.poketools.fr/bundles/ptpoketools/images/pokemon/pokemon-sugimori-h100/027.png?v3.4.0'},
     {name: 'SablerauEvol1', thumbnail: 'https://www.poketools.fr/bundles/ptpoketools/images/pokemon/pokemon-sugimori-h100/028.png?v3.4.0'},
+    {name: 'Pikachu', thumbnail: 'https://www.poketools.fr/bundles/ptpoketools/images/pokemon/pokemon-sugimori-h100/029.png?v3.4.0'},
+    {name: 'Raichu', thumbnail: 'https://www.poketools.fr/bundles/ptpoketools/images/pokemon/pokemon-sugimori-h100/030.png?v3.4.0'},
+    {name: 'Sablerau', thumbnail: 'https://www.poketools.fr/bundles/ptpoketools/images/pokemon/pokemon-sugimori-h100/031.png?v3.4.0'},
+    {name: 'SablerauEvol1', thumbnail: 'https://www.poketools.fr/bundles/ptpoketools/images/pokemon/pokemon-sugimori-h100/032.png?v3.4.0'},
+    {name: 'Raichu', thumbnail: 'https://www.poketools.fr/bundles/ptpoketools/images/pokemon/pokemon-sugimori-h100/033.png?v3.4.0'},
+    {name: 'Sablerau', thumbnail: 'https://www.poketools.fr/bundles/ptpoketools/images/pokemon/pokemon-sugimori-h100/034.png?v3.4.0'},
+    {name: 'SablerauEvol1', thumbnail: 'https://www.poketools.fr/bundles/ptpoketools/images/pokemon/pokemon-sugimori-h100/035.png?v3.4.0'},
   ];
   pokemon1?: any;
   pokemon2?: any;
