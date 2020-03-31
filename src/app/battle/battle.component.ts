@@ -10,10 +10,18 @@ export class BattleComponent implements OnInit {
     {name: 'Eevee', level: 5, hp: 20, maxHp: 20, attack: 20, defense: 20, speed: 20, moves: [{name: 'Nuzzle', power: 20}]},
     {name: 'Pikachu', level: 5, hp: 20, maxHp: 20, attack: 20, defense: 20, speed: 20, moves: [{name: 'Thunder Shock', power: 40}]}
   ]
+  action = 'Play'
+
   constructor() { }
 
   ngOnInit(): void {
-    this.run()
+  }
+
+  toggleBattle() {
+    this.action = this.action === 'Play' ? 'Pause' : 'Play';
+    if (this.action === 'Pause') {
+      this.run();
+    }
   }
 
   run() {
