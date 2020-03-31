@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./battle.component.scss']
 })
 export class BattleComponent implements OnInit {
-  pokemon = {
+  pokemon1 = {
     name: 'Eevee'
+  }
+  pokemon2 = {
+    name: 'Pikachu'
   }
 
   constructor() { }
