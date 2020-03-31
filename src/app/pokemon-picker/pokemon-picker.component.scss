@@ -1,0 +1,31 @@
+
+.picker-grid{
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.pokemon-picker, .app-picker{
+  display: flex;
+
+  &.pokemon-picker{
+    flex-grow: 1;
+    flex-direction: column;
+
+  }
+
+}
+
+.vs-separator{
+  padding: 0 8px;
+}
+
+.button-pick-pokemon{
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  & > img{
+    width: 40px;
+
+  }
+}

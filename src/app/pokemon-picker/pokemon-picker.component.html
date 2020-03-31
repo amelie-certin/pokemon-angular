@@ -1,0 +1,24 @@
+<div class="app-picker">
+  <div class="pokemon-picker first">
+    <div class="picker-grid" >
+      <button class="button-pick-pokemon" (click)="pickPokemon1(i)" *ngFor="let pokemon of listPokemon; let i = index">
+        <img class="thumb-pokemon" [src]="pokemon.thumbnail"  />
+      </button>
+    </div>
+    <div class="info-pokemon"  *ngIf="pokemon1" >
+      <app-pokemon [name]="pokemon1.name" [thumbnail]="pokemon1.thumbnail" ></app-pokemon>
+    </div>
+  </div>
+  <div class="vs-separator"></div>
+  <div class="pokemon-picker second">
+    <div class="picker-grid " >
+      <button class="button-pick-pokemon" (click)="pickPokemon2(i)" *ngFor="let pokemon of listPokemon; let i = index">
+        <img class="thumb-pokemon" [src]="pokemon.thumbnail" />
+      </button>
+    </div>
+    <div class="info-pokemon" *ngIf="pokemon2">
+      <app-pokemon  [name]="pokemon2.name" [thumbnail]="pokemon2.thumbnail" ></app-pokemon>
+    </div>
+  </div>
+</div>
+<button (click)="startFight()" >PREPARE TO FIGHT !</button>
