@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class PokemonComponent implements OnInit {
   id = 1;
-  @Input('name') name = "";
+  @Input() name = '';
   level = 1;
   hp = 20;
   maxHp = 20;
