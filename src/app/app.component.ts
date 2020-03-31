@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Pokemon';
+
+
+  setFighters(fighters: any){
+    console.log(fighters);
+  }
 }

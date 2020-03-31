@@ -5,7 +5,7 @@
         <img class="thumb-pokemon" [src]="pokemon.thumbnail"  />
       </button>
     </div>
-    <div class="info-pokemon" *ngIf="pokemon1">
+    <div class="info-pokemon"  *ngIf="pokemon1" >
       <app-pokemon [name]="pokemon1.name" [thumbnail]="pokemon1.thumbnail" ></app-pokemon>
     </div>
   </div>
@@ -17,8 +17,8 @@
       </button>
     </div>
     <div class="info-pokemon" *ngIf="pokemon2">
-      <app-pokemon [name]="pokemon2.name" [thumbnail]="pokemon2.thumbnail" ></app-pokemon>
+      <app-pokemon  [name]="pokemon2.name" [thumbnail]="pokemon2.thumbnail" ></app-pokemon>
     </div>
   </div>
 </div>
-
+<button (click)="startFight()" >PREPARE TO FIGHT !</button>

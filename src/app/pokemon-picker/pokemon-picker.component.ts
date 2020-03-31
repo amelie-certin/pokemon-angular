@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+
+interface Poke {
+  name: string;
+  thumbnail: string;
+}
 
 @Component({
   selector: 'app-pokemon-picker',
@@ -19,8 +24,10 @@ export class PokemonPickerComponent implements OnInit {
     {name: 'Sablerau', thumbnail: 'https://www.poketools.fr/bundles/ptpoketools/images/pokemon/pokemon-sugimori-h100/034.png?v3.4.0'},
     {name: 'SablerauEvol1', thumbnail: 'https://www.poketools.fr/bundles/ptpoketools/images/pokemon/pokemon-sugimori-h100/035.png?v3.4.0'},
   ];
-  pokemon1?: any;
-  pokemon2?: any;
+  pokemon1?: Poke;
+  pokemon2?: Poke;
+  @Output() setFighters = new EventEmitter();
+
   ngOnInit(): void {
   }
 
@@ -30,5 +37,9 @@ export class PokemonPickerComponent implements OnInit {
 
   pickPokemon2(index: number){
     this.pokemon2 = this.listPokemon[index];
+  }
+
+  startFight(){
+    this.setFighters.emit({pokemon1: this.pokemon1, pokemon2: this.pokemon2});
   }
 }

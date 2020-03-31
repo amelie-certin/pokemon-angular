@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PokemonPickerComponent } from './pokemon-picker.component';
-import {AppComponent} from "../app.component";
+import {PokemonComponent} from "../pokemon/pokemon.component";
 
 describe('PokemonPickerComponent', () => {
   let component: PokemonPickerComponent;
@@ -9,7 +9,10 @@ describe('PokemonPickerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PokemonPickerComponent ]
+      declarations: [
+        PokemonPickerComponent,
+        PokemonComponent
+      ]
     })
     .compileComponents();
   }));
