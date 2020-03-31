@@ -1,0 +1,13 @@
+
+.pokemon-picker{
+  display: flex;
+
+  & > .pokemon-picker{
+    flex-grow: 1;
+
+  }
+
+}
+.thumb-pokemon{
+  width: 50px;
+}

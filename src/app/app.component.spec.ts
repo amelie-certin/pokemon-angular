@@ -1,15 +1,15 @@
 import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import {PokemonPickerComponent} from "./pokemon-picker/pokemon-picker.component";
+import {BattleComponent} from "./battle/battle.component";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
       declarations: [
-        AppComponent
+        AppComponent,
+        PokemonPickerComponent,
+        // BattleComponent
       ],
     }).compileComponents();
   }));
@@ -26,10 +26,5 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('Pokemon');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('Pokemon app is running!');
-  });
+
 });

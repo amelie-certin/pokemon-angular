@@ -1,0 +1,23 @@
+<div class="pokemon-picker">
+  <div class="pokemon-picker first">
+    <div class="picker-grid" *ngFor="let pokemon of listPokemon; let i = index">
+      <button (click)="pickPokemon1(i)">
+        <img class="thumb-pokemon" [src]="pokemon.thumbnail"  />
+      </button>
+    </div>
+    <div class="info-pokemon" >
+    </div>
+  </div>
+  <div class="vs-separator"></div>
+  <div class="pokemon-picker second">
+    <div class="picker-grid " *ngFor="let pokemon of listPokemon; let i = index">
+      <button (click)="pickPokemon2(i)">
+        <img class="thumb-pokemon" [src]="pokemon.thumbnail" />
+      </button>
+    </div>
+    <div class="info-pokemon">
+    </div>
+  </div>
+</div>
+<h1>{{pokemon1?.name}}</h1>
+<h1>{{pokemon2?.name}}</h1>
