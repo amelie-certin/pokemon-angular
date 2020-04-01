@@ -4,9 +4,11 @@
   </div>
   <div>
     <h2>{{pokemon.name}} lvl {{pokemon.level}}</h2>
-    <p>hp: {{pokemon.hp}}/{{pokemon.maxHp}}</p>
-    <p>Speed: {{pokemon.speed()}}</p>
-    <p>Attack: {{pokemon.attack()}}</p>
-    <p>Defense: {{pokemon.defense()}}</p>
+    <p>HP: {{pokemon.hp}}/{{pokemon.maxHp}}</p>
+    <p>Attack: {{pokemon.attack().baseStat}}</p>
+    <p>Defense: {{pokemon.defense().baseStat}}</p>
+    <p>AttackSFX: {{pokemon.attackSFX().baseStat}}</p>
+    <p>DefenseSFX: {{pokemon.defenseSFX().baseStat}}</p>
+    <p>Speed: {{pokemon.speed().baseStat}}</p>
   </div>
 </div>
