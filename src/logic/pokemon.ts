@@ -72,6 +72,10 @@ export class Pokemon {
     return this.thumbnail
   }
 
+  getRandomMove() {
+    return this.moves.moves[Math.floor(Math.random() * this.moves.moves.length)];
+  }
+
   clone(): Pokemon{
     return new Pokemon(
       this.id,

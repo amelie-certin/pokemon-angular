@@ -36,9 +36,7 @@ export class BattleComponent implements OnInit {
   async run() {
     let [attacker, defenser] = this.attackOrder();
     do {
-      const move = this.fighters[attacker].moves.moves[0];
-      console.log(move);
-
+      const move = this.fighters[attacker].getRandomMove();
       await this.runTurn(attacker, defenser, move);
       [attacker, defenser] = [defenser, attacker];
 
