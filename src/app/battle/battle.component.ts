@@ -11,7 +11,7 @@ export class BattleComponent implements OnInit {
     {name: 'Pikachu', level: 5, hp: 20, maxHp: 20, attack: 20, defense: 20, speed: 20, moves: [{name: 'Thunder Shock', power: 40}]}
   ]
   running = false;
-  action = 'Pause';
+  action = 'Play';
   logs : string[] = [];
   winnerLog : string = '';
 
