@@ -10,7 +10,8 @@ export class BattleComponent implements OnInit {
     {name: 'Eevee', level: 5, hp: 20, maxHp: 20, attack: 20, defense: 20, speed: 20, moves: [{name: 'Nuzzle', power: 20}]},
     {name: 'Pikachu', level: 5, hp: 20, maxHp: 20, attack: 20, defense: 20, speed: 20, moves: [{name: 'Thunder Shock', power: 40}]}
   ]
-  action = 'Play'
+  running = false;
+  runningActions = {true: 'Pause', false: 'Play'};
   logs : string[] = [];
   winnerLog : string = '';
 
@@ -20,8 +21,8 @@ export class BattleComponent implements OnInit {
   }
 
   toggleBattle() {
-    this.action = this.action === 'Play' ? 'Pause' : 'Play';
-    if (this.action === 'Pause') {
+    this.running = !this.running;
+    if (this.running) {
       this.run();
     }
   }
@@ -38,7 +39,6 @@ export class BattleComponent implements OnInit {
       [attacker, defenser] = [defenser, attacker];
     } while (this.pokemons[0].hp > 0 && this.pokemons[1].hp > 0);
     this.winnerLog = `Winner: ${this.pokemons[defenser].name}`;
-    return this.pokemons[defenser];
   }
 
   async runTurn(attacker, defenser, move) {
