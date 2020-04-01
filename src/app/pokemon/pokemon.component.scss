@@ -1,1 +1,9 @@
-
+.pokemon-detail{
+  display: flex;
+  flex-grow: 1;
+  & > :first-child{
+    max-width: 150px;
+    align-self: center;
+    margin-right: 1rem;
+  }
+}
