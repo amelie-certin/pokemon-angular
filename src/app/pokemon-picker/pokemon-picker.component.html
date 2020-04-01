@@ -7,6 +7,7 @@
     </div>
     <div class="info-pokemon"  *ngIf="pokemon1" >
       <app-pokemon [name]="pokemon1.name" [thumbnail]="pokemon1.thumbnail" ></app-pokemon>
+      <p>Choose level: <input type="range" min="1" max="100" (change)="chooseLevel1($event.target.value)" /> </p>
     </div>
   </div>
   <div class="vs-separator"></div>
@@ -18,12 +19,13 @@
     </div>
     <div class="info-pokemon" *ngIf="pokemon2">
       <app-pokemon  [name]="pokemon2.name" [thumbnail]="pokemon2.thumbnail" ></app-pokemon>
+      <p>Choose level: <input type="range" min="1" max="100" (change)="chooseLevel1($event.target.value)" /> </p>
     </div>
   </div>
 </div>
 <br><br>
 <ng-template *ngIf="pokemon1 && pokemon2">
-  <center>
+  <div [ngStyle]="{textAlign: 'center'}">
     <button (click)="startFight()" >PREPARE TO FIGHT !</button>
-  </center>
+  </div>
 </ng-template>

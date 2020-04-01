@@ -52,6 +52,14 @@ export class Pokemon {
     return this.stats.get(this.DEFENSE)
   }
 
+  setMoves(moves: MovePool){
+    this.moves = moves
+  }
+
+  setLevel(level: number) {
+    this.level = level
+  }
+
   getThumbnail() {
     return this.thumbnail
   }
