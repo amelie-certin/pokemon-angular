@@ -52,6 +52,14 @@ export class Pokemon {
     return this.stats.get(this.DEFENSE)
   }
 
+  attackSFX() {
+    return this.stats.get(this.ATTACK)
+  }
+
+  defenseSFX() {
+    return this.stats.get(this.DEFENSE)
+  }
+
   setMoves(moves: MovePool){
     this.moves = moves
   }
