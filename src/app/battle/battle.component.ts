@@ -11,7 +11,7 @@ export class BattleComponent implements OnInit {
     {name: 'Pikachu', level: 5, hp: 20, maxHp: 20, attack: 20, defense: 20, speed: 20, moves: [{name: 'Thunder Shock', power: 40}]}
   ]
   running = false;
-  runningActions = {true: 'Pause', false: 'Play'};
+  action = 'Pause';
   logs : string[] = [];
   winnerLog : string = '';
 
@@ -23,7 +23,10 @@ export class BattleComponent implements OnInit {
   toggleBattle() {
     this.running = !this.running;
     if (this.running) {
+      this.action = 'Pause';
       this.run();
+    } else {
+      this.action = 'Play';
     }
   }
 
