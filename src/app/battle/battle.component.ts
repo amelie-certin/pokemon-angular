@@ -50,7 +50,7 @@ export class BattleComponent implements OnInit {
   async runTurn(attacker, defenser, move) {
     const damage = this.damage(this.fighters[attacker], this.fighters[defenser], move);
     this.fighters[defenser].hp -= damage;
-    this.logs.push(`${this.fighters[attacker].name} deals ${damage} to ${this.fighters[defenser].name}`);
+    this.logs.push(`${this.fighters[attacker].name} deals ${damage} to ${this.fighters[defenser].name} using ${move.name}`);
     await this.delay();
   }
 
