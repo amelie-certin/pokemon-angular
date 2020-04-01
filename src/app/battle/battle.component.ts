@@ -26,21 +26,26 @@ export class BattleComponent implements OnInit {
     }
   }
 
-  run() {
+  delay() {
+    return new Promise(resolve => setTimeout(resolve, 1000));
+  }
+
+  async run() {
     let [attacker, defenser] = this.attackOrder();
     do {
       const move = this.pokemons[attacker].moves[0];
-      this.runTurn(attacker, defenser, move);
+      await this.runTurn(attacker, defenser, move);
       [attacker, defenser] = [defenser, attacker];
     } while (this.pokemons[0].hp > 0 && this.pokemons[1].hp > 0);
     this.winnerLog = `Winner: ${this.pokemons[defenser].name}`;
     return this.pokemons[defenser];
   }
 
-  runTurn(attacker, defenser, move) {
+  async runTurn(attacker, defenser, move) {
     const damage = this.damage(this.pokemons[attacker], this.pokemons[attacker].moves[0], this.pokemons[defenser].defense);
     this.pokemons[defenser].hp -= damage;
     this.logs.push(`${this.pokemons[attacker].name} deals ${damage} to ${this.pokemons[defenser].name}`);
+    await this.delay();
   }
 
   attackOrder() {
