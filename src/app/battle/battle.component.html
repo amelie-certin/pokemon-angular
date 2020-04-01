@@ -3,5 +3,5 @@
 <ul>
   <li *ngFor="let log of logs">{{log}}</li>
 </ul>
-<p>{{winnerLog}}</p>
+<p [ngClass]="'winner-log'">{{winnerLog}}</p>
 <button type="button" (click)="toggleBattle()">{{action}}</button>
