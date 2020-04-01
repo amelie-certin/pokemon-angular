@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
 import { BattleComponent } from './battle/battle.component';
+import { BattleService } from './battle.service';
 import { PokemonPickerComponent } from './pokemon-picker/pokemon-picker.component';
 
 @NgModule({
@@ -18,7 +19,7 @@ import { PokemonPickerComponent } from './pokemon-picker/pokemon-picker.componen
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [BattleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

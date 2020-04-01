@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Pokemon, PokemonBuilder} from 'src/logic/pokemon';
 import {Move, MovePool} from '../../logic/move';
+import { BattleService } from '../battle.service';
 
 const moves: MovePool = new MovePool(new Move('claw', 100, 0, 1, 100));
 
@@ -57,6 +58,11 @@ export class PokemonPickerComponent implements OnInit {
   pokemon1?: Pokemon;
   pokemon2?: Pokemon;
   @Output() setFighters = new EventEmitter();
+  battleService : BattleService;
+
+  constructor(battleService : BattleService) {
+    this.battleService = battleService;
+  }
 
   ngOnInit(): void {
   }
@@ -79,8 +85,7 @@ export class PokemonPickerComponent implements OnInit {
   }
 
   startFight(){
-    this.setFighters.emit([this.pokemon1, this.pokemon2]);
-    this.pokemon1 = undefined;
-    this.pokemon2 = undefined;
+    this.battleService.setFighters([this.pokemon1, this.pokemon2]);
+    this.setFighters.emit();
   }
 }

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Pokemon} from '../../logic/pokemon';
+import { BattleService } from '../battle.service';
 
 @Component({
   selector: 'app-battle',
@@ -8,13 +9,15 @@ import {Pokemon} from '../../logic/pokemon';
 })
 export class BattleComponent implements OnInit {
 
-  @Input() fighters: Pokemon[];
+  fighters: Pokemon[];
   running = false;
   action = 'Play';
   logs: string[] = [];
   winnerLog = '';
 
-  constructor() { }
+  constructor(battleService : BattleService) {
+    this.fighters = battleService.getFighters();
+  }
 
   ngOnInit(): void {
   }
