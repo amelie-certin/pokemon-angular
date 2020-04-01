@@ -11,9 +11,8 @@ import { Pokemon } from '../logic/pokemon';
 export class AppComponent {
   title = 'Pokemon';
   fighters : Pokemon[];
-  battleService : BattleService;
 
-  constructor(battleService : BattleService) {
+  constructor(private battleService : BattleService) {
     this.battleService = battleService;
   }
 

@@ -15,11 +15,12 @@ export class BattleComponent implements OnInit {
   action = 'Play';
   logs: string[] = [];
   winnerLog = '';
-  logService : LogService;
 
-  constructor(battleService : BattleService, logService : LogService) {
+  constructor(private battleService : BattleService, logService : LogService) {
     this.fighters = battleService.getFighters();
-    this.logService = logService;
+    this.logs = logService.getLogs();
+    this.winnerLog = logService.getWinnerLog();
+    this.battleService = battleService;
   }
 
   ngOnInit(): void {
@@ -29,46 +30,9 @@ export class BattleComponent implements OnInit {
     this.running = !this.running;
     if (this.running) {
       this.action = 'Pause';
-      this.run();
+      this.battleService.run();
     } else {
       this.action = 'Play';
     }
-  }
-
-  delay() {
-    return new Promise(resolve => setTimeout(resolve, 1000));
-  }
-
-  async run() {
-    let [attacker, defenser] = this.attackOrder();
-    do {
-      const move = this.fighters[attacker].getRandomMove();
-      await this.runTurn(attacker, defenser, move);
-      [attacker, defenser] = [defenser, attacker];
-
-    } while (this.fighters[0].hp > 0 && this.fighters[1].hp > 0);
-    this.logService.setWinner(this.fighters[1]);
-    this.winnerLog = this.logService.getWinnerLog();
-  }
-
-  async runTurn(attacker, defenser, move) {
-    const damage = this.damage(this.fighters[attacker], this.fighters[defenser], move);
-    this.fighters[defenser].hp -= damage;
-    this.logService.push(this.fighters[attacker], this.fighters[defenser], move, damage);
-    this.logs = this.logService.getLogs();
-    await this.delay();
-  }
-
-  attackOrder() {
-    return this.fighters[0].speed > this.fighters[1].speed ? [0, 1] : [1, 0];
-  }
-
-  damage(pokemon, opponent, move) {
-    const level = pokemon.level;
-    const attack = pokemon.attack().baseStat;
-    const power = move.power;
-    const defense = opponent.defense().baseStat;
-
-    return Math.floor(Math.floor(Math.floor(2 * level / 5 + 2) * attack * power / defense) / 50) + 2;
   }
 }

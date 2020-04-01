@@ -58,9 +58,8 @@ export class PokemonPickerComponent implements OnInit {
   pokemon1?: Pokemon;
   pokemon2?: Pokemon;
   @Output() setFighters = new EventEmitter();
-  battleService : BattleService;
 
-  constructor(battleService : BattleService) {
+  constructor(private battleService : BattleService) {
     this.battleService = battleService;
   }
 
