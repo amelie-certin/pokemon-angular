@@ -6,8 +6,8 @@
       </button>
     </div>
     <div class="info-pokemon"  *ngIf="pokemon1" >
-      <app-pokemon [name]="pokemon1.name" [thumbnail]="pokemon1.thumbnail" ></app-pokemon>
-      <p>Choose level: <input type="range" min="1" max="100" (change)="chooseLevel1($event.target.value)" /> </p>
+      <app-pokemon  [pokemon]="pokemon1" ></app-pokemon>
+      <p>Choose level: <input type="range" min="1" max="100" (change)="chooseLevel1($event)" /> </p>
     </div>
   </div>
   <div class="vs-separator"></div>
@@ -18,8 +18,8 @@
       </button>
     </div>
     <div class="info-pokemon" *ngIf="pokemon2">
-      <app-pokemon  [name]="pokemon2.name" [thumbnail]="pokemon2.thumbnail" ></app-pokemon>
-      <p>Choose level: <input type="range" min="1" max="100" (change)="chooseLevel1($event.target.value)" /> </p>
+      <app-pokemon  [pokemon]="pokemon2" ></app-pokemon>
+      <p>Choose level: <input type="range" min="1" max="100" (change)="chooseLevel1($event)" /> </p>
     </div>
   </div>
 </div>

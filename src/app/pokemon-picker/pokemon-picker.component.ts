@@ -62,20 +62,18 @@ export class PokemonPickerComponent implements OnInit {
   }
 
   pickPokemon1(index: number){
-    this.pokemon1 = Object.assign({}, this.listPokemon[index]);
+    this.pokemon1 =this.listPokemon[index].clone();
   }
 
   pickPokemon2(index: number){
-    this.pokemon2 = Object.assign({}, this.listPokemon[index]);
+    this.pokemon2 = this.listPokemon[index].clone();
   }
 
-  chooseLevel1(level : number){
-    console.log(level, this.pokemon1);
-    this.pokemon1.setLevel(level)
+  chooseLevel1(event : any){
+    this.pokemon1.setLevel(parseInt(event.target.value, 10))
   }
-  chooseLevel2(level : number){
-    console.log(level, this.pokemon2);
-    this.pokemon2.setLevel(level)
+  chooseLevel2(event : any){
+    this.pokemon2.setLevel(parseInt(event.target.value, 10))
   }
 
   startFight(){

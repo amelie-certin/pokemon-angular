@@ -1,12 +1,12 @@
 <div class="pokemon-detail">
   <div>
-    <img [src]="thumbnail" />
+    <img [src]="pokemon.thumbnail" />
   </div>
   <div>
-    <h2>{{name}} lvl {{level}}</h2>
-    <p>hp: {{hp}}/{{maxHp}}</p>
-    <p>Speed: {{speed}}</p>
-    <p>Attack: {{attack}}</p>
-    <p>Defense: {{defense}}</p>
+    <h2>{{pokemon.name}} lvl {{pokemon.level}}</h2>
+    <p>hp: {{pokemon.hp}}/{{pokemon.maxHp}}</p>
+    <p>Speed: {{pokemon.speed()}}</p>
+    <p>Attack: {{pokemon.attack()}}</p>
+    <p>Defense: {{pokemon.defense()}}</p>
   </div>
 </div>

@@ -63,6 +63,23 @@ export class Pokemon {
   getThumbnail() {
     return this.thumbnail
   }
+
+  clone(): Pokemon{
+    return new Pokemon(
+      this.id,
+      this.name,
+      this.thumbnail,
+      this.level,
+      this.stats.get(this.SPEED),
+      this.stats.get(this.ATTACK),
+      this.stats.get(this.DEFENSE),
+      this.stats.get(this.ATTACK_SFX),
+      this.stats.get(this.DEFENSE_SFX),
+      this.hp,
+      this.maxHp,
+      this.moves
+    )
+  }
 }
 
 export class PokemonBuilder {
@@ -88,6 +105,7 @@ export class PokemonBuilder {
     this.moves = moves
     this.thumbnail = thumbnail
   }
+
 
   build(): Pokemon {
     return new Pokemon(
