@@ -1,8 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Pokemon, PokemonBuilder} from 'src/logic/pokemon';
-import {Move, MovePool} from "../../logic/move";
+import {Move, MovePool} from '../../logic/move';
 
-const moves: MovePool = new MovePool(new Move('claw', 100, 0, 1, 100))
+const moves: MovePool = new MovePool(new Move('claw', 100, 0, 1, 100));
 
 const pokemons: Pokemon[] = [
   new PokemonBuilder(1, 'Bulbizarre (Bulbasaur)', moves, 'https://www.poketools.fr/bundles/ptpoketools/images/pokemon/pokemon-sugimori-h100/001.png?v3.4.0')
@@ -53,7 +53,7 @@ const pokemons: Pokemon[] = [
   styleUrls: ['./pokemon-picker.component.scss']
 })
 export class PokemonPickerComponent implements OnInit {
-  listPokemon = pokemons
+  listPokemon = pokemons;
   pokemon1?: Pokemon;
   pokemon2?: Pokemon;
   @Output() setFighters = new EventEmitter();
@@ -62,21 +62,25 @@ export class PokemonPickerComponent implements OnInit {
   }
 
   pickPokemon1(index: number){
-    this.pokemon1 =this.listPokemon[index].clone();
+    this.pokemon1 = this.listPokemon[index].clone();
+    console.log(this.pokemon1, this.pokemon2);
   }
 
   pickPokemon2(index: number){
     this.pokemon2 = this.listPokemon[index].clone();
+    console.log(this.pokemon1, this.pokemon2);
   }
 
-  chooseLevel1(event : any){
-    this.pokemon1.setLevel(parseInt(event.target.value, 10))
+  chooseLevel1(event: any){
+    this.pokemon1.setLevel(parseInt(event.target.value, 10));
   }
-  chooseLevel2(event : any){
-    this.pokemon2.setLevel(parseInt(event.target.value, 10))
+  chooseLevel2(event: any){
+    this.pokemon2.setLevel(parseInt(event.target.value, 10));
   }
 
   startFight(){
-    this.setFighters.emit({pokemon1: this.pokemon1, pokemon2: this.pokemon2});
+    this.setFighters.emit([this.pokemon1, this.pokemon2]);
+    this.pokemon1 = undefined;
+    this.pokemon2 = undefined;
   }
 }

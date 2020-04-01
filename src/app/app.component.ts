@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {Pokemon} from "../logic/pokemon";
+
+
 
 @Component({
   selector: 'app-root',
@@ -7,9 +10,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Pokemon';
+  fighters: Pokemon[]
 
-
-  setFighters(fighters: any){
-    console.log(fighters);
+  setFighters(fighters: Pokemon[]){
+    this.fighters = fighters
   }
 }

@@ -1,8 +1,12 @@
-<app-pokemon-picker (setFighters)="setFighters($event)">
-</app-pokemon-picker>
+<ng-template [ngIf]="!fighters">
+  <app-pokemon-picker (setFighters)="setFighters($event)">
+  </app-pokemon-picker>
+</ng-template>
 
 <hr>
-<h1>Pokemon Battle</h1>
-<div class="battle">
-  <app-battle></app-battle>
-</div>
+<ng-template [ngIf]="fighters">
+  <h1>Pokemon Battle</h1>
+  <div class="battle">
+    <app-battle [fighters]="fighters"></app-battle>
+  </div>
+</ng-template>

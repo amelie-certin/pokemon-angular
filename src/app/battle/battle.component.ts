@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Pokemon} from '../../logic/pokemon';
 
 @Component({
   selector: 'app-battle',
@@ -6,14 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./battle.component.scss']
 })
 export class BattleComponent implements OnInit {
+
+  @Input() fighters: Pokemon[];
+
   pokemons = [
     {name: 'Eevee', level: 5, hp: 20, maxHp: 20, attack: 20, defense: 20, speed: 20, moves: [{name: 'Nuzzle', power: 20}]},
     {name: 'Pikachu', level: 5, hp: 20, maxHp: 20, attack: 20, defense: 20, speed: 20, moves: [{name: 'Thunder Shock', power: 40}]}
-  ]
+  ];
   running = false;
   action = 'Play';
-  logs : string[] = [];
-  winnerLog : string = '';
+  logs: string[] = [];
+  winnerLog = '';
 
   constructor() { }
 
