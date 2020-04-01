@@ -22,4 +22,8 @@
   </div>
 </div>
 <br><br>
-<center *ngIf="pokemon1 && pokemon2"><button (click)="startFight()" >PREPARE TO FIGHT !</button></center>
+<ng-template *ngIf="pokemon1 && pokemon2">
+  <center>
+    <button (click)="startFight()" >PREPARE TO FIGHT !</button>
+  </center>
+</ng-template>
