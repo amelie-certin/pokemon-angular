@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Pokemon} from '../../logic/pokemon';
+import { Component, Input, OnInit } from '@angular/core';
+import { Pokemon } from '../../logic/pokemon';
 import { BattleService } from '../battle.service';
+import { LogService } from './log.service';
 
 @Component({
   selector: 'app-battle',
@@ -14,9 +15,11 @@ export class BattleComponent implements OnInit {
   action = 'Play';
   logs: string[] = [];
   winnerLog = '';
+  logService : LogService;
 
-  constructor(battleService : BattleService) {
+  constructor(battleService : BattleService, logService : LogService) {
     this.fighters = battleService.getFighters();
+    this.logService = logService;
   }
 
   ngOnInit(): void {
@@ -44,13 +47,15 @@ export class BattleComponent implements OnInit {
       [attacker, defenser] = [defenser, attacker];
 
     } while (this.fighters[0].hp > 0 && this.fighters[1].hp > 0);
-    this.winnerLog = `Winner: ${this.fighters[defenser].name}`;
+    this.logService.setWinner(this.fighters[1]);
+    this.winnerLog = this.logService.getWinnerLog();
   }
 
   async runTurn(attacker, defenser, move) {
     const damage = this.damage(this.fighters[attacker], this.fighters[defenser], move);
     this.fighters[defenser].hp -= damage;
-    this.logs.push(`${this.fighters[attacker].name} deals ${damage} to ${this.fighters[defenser].name} using ${move.name}`);
+    this.logService.push(this.fighters[attacker], this.fighters[defenser], move, damage);
+    this.logs = this.logService.getLogs();
     await this.delay();
   }
 

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
 import { BattleComponent } from './battle/battle.component';
 import { BattleService } from './battle.service';
+import { LogService } from './battle/log.service';
 import { PokemonPickerComponent } from './pokemon-picker/pokemon-picker.component';
 
 @NgModule({
@@ -19,7 +20,10 @@ import { PokemonPickerComponent } from './pokemon-picker/pokemon-picker.componen
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [BattleService],
+  providers: [
+    BattleService,
+    LogService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
