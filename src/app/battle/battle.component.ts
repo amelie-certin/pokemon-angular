@@ -11,6 +11,8 @@ export class BattleComponent implements OnInit {
     {name: 'Pikachu', level: 5, hp: 20, maxHp: 20, attack: 20, defense: 20, speed: 20, moves: [{name: 'Thunder Shock', power: 40}]}
   ]
   action = 'Play'
+  logs : string[] = [];
+  winnerLog : string = '';
 
   constructor() { }
 
@@ -31,14 +33,14 @@ export class BattleComponent implements OnInit {
       this.runTurn(attacker, defenser, move);
       [attacker, defenser] = [defenser, attacker];
     } while (this.pokemons[0].hp > 0 && this.pokemons[1].hp > 0);
-    console.log(`Winner: ${this.pokemons[defenser].name}`);
+    this.winnerLog = `Winner: ${this.pokemons[defenser].name}`;
     return this.pokemons[defenser];
   }
 
   runTurn(attacker, defenser, move) {
     const damage = this.damage(this.pokemons[attacker], this.pokemons[attacker].moves[0], this.pokemons[defenser].defense);
     this.pokemons[defenser].hp -= damage;
-    console.log(`${this.pokemons[attacker].name} deals ${damage} to ${this.pokemons[defenser].name}`);
+    this.logs.push(`${this.pokemons[attacker].name} deals ${damage} to ${this.pokemons[defenser].name}`);
   }
 
   attackOrder() {
