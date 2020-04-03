@@ -32,22 +32,19 @@ export class BattleService {
       [attacker, defenser] = [defenser, attacker];
 
     } while (this.fighters[0].hp > 0 && this.fighters[1].hp > 0);
-    this.logService.setWinner(this.fighters[1]);
+    this.winner = this.fighters[1].name;
   }
 
   private async runTurn(attacker : number, defenser : number, move : Move) {
     const damage = this.damage(this.fighters[attacker], this.fighters[defenser], move);
     this.fighters[defenser].hp -= damage;
     this.logService.push(this.fighters[attacker], this.fighters[defenser], move, damage);
-    console.log('tick');
-
     await this.delay();
   }
 
   private delay() {
     return new Promise(resolve => setTimeout(resolve, 1000));
   }
-
 
   private attackOrder() {
     return this.fighters[0].speed > this.fighters[1].speed ? [0, 1] : [1, 0];
