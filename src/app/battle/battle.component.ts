@@ -15,8 +15,6 @@ export class BattleComponent implements OnInit {
   logs: string[] = [];
 
   constructor(public battleService : BattleService, private logService : LogService) {
-    this.battleService = battleService;
-    this.logService = logService;
   }
 
   ngOnInit(): void {

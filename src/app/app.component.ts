@@ -12,8 +12,7 @@ export class AppComponent {
   title = 'Pokemon';
   startFight = false;
 
-  constructor(private battleService: BattleService) {
-    this.battleService = battleService;
+  constructor() {
   }
 
   setFighters() {
