@@ -1,17 +1,15 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed, async } from '@angular/core/testing';
 import {PokeApiService} from './pokeApi.service';
+import {PokemonBuilder} from '../../logic/pokemon';
+import {movesCst} from '../pokemon-picker/pokemon-picker.component';
 
 describe('PokeApiService', () => {
   beforeEach(() => TestBed.configureTestingModule({
     imports: [HttpClientTestingModule],
     providers: [PokeApiService]
   }));
-
-  it('should get list of pokemon url', async(() => {
-    const pokeApiService = TestBed.get(PokeApiService) as PokeApiService;
-    const http = TestBed.get(HttpTestingController);
-    const mockPokemonUrls = JSON.parse(`[
+  const mockPokemonUrls = JSON.parse(`[
     {
       "name": "bulbasaur",
       "url": "https://pokeapi.co/api/v2/pokemon/1/"
@@ -174,10 +172,42 @@ describe('PokeApiService', () => {
     }
   ]`);
 
+  it('should get list of pokemon url', async(() => {
+    const pokeApiService = TestBed.get(PokeApiService) as PokeApiService;
+    const http = TestBed.get(HttpTestingController);
     pokeApiService.getPokemons().subscribe(resultObs => {
         expect(resultObs.results.length).toBe(40);
         expect(resultObs.results).toBe(mockPokemonUrls);
     });
+  }));
 
+  it('first pokemon should be equal to bulbasaur', async(() => {
+    const pokeApiService = TestBed.get(PokeApiService) as PokeApiService;
+    const http = TestBed.get(HttpTestingController);
+    pokeApiService.getPokemons().subscribe(resultObs => {
+       pokeApiService.getPokemon(resultObs.results[0].url).subscribe(pokemonApi => {
+         const {id, stats, moves, species} = pokemonApi;
+         expect(species).toBe(JSON.parse(`{"name": "bulbasaur", "url": "https://pokeapi.co/api/v2/pokemon-species/1/"}`));
+         const pokemonMock = new PokemonBuilder(1, 'bulbasaur', movesCst, 'https://www.poketools.fr/bundles/ptpoketools/images/pokemon/pokemon-sugimori-h100/001.png?v3.4.0')
+           .setSpeed(48)
+           .setDefenseSFX(48)
+           .setAttackSFX(48)
+           .setDefense(48)
+           .setAttack(48)
+           .setHp(48)
+           .setMaxHp(48)
+           .setLevel(1).build();
+         const thumbId = '001';
+         const pokemonObs = new PokemonBuilder(id, species.name, movesCst, `https://www.poketools.fr/bundles/ptpoketools/images/pokemon/pokemon-sugimori-h100/${thumbId}.png?v3.4.0`)
+           .setSpeed(stats[0].base_stat)
+           .setDefenseSFX(stats[1].base_stat)
+           .setAttackSFX(stats[2].base_stat)
+           .setDefense(stats[3].base_stat)
+           .setAttack(stats[4].base_stat)
+           .setHp(stats[5].base_stat)
+           .setMaxHp(stats[5].base_stat)
+           .setLevel(1).build();
+       });
+    });
   }));
 });

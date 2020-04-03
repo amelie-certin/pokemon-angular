@@ -4,7 +4,7 @@ import {Move, MovePool} from '../../logic/move';
 import { BattleService } from '../battle.service';
 import {PokeApiService} from '../pokemon/pokeApi.service';
 
-const movesCst: MovePool = new MovePool(new Move('claw', 20, 0, 1, 100));
+export const movesCst: MovePool = new MovePool(new Move('claw', 20, 0, 1, 100));
 
 const pokemons: Pokemon[] = [
   new PokemonBuilder(1, 'Bulbizarre (Bulbasaur)', movesCst, 'https://www.poketools.fr/bundles/ptpoketools/images/pokemon/pokemon-sugimori-h100/001.png?v3.4.0')
