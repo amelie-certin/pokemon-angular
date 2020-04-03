@@ -8,6 +8,8 @@ import { BattleComponent } from './battle/battle.component';
 import { BattleService } from './battle.service';
 import { LogService } from './battle/log.service';
 import { PokemonPickerComponent } from './pokemon-picker/pokemon-picker.component';
+import {HttpClientModule} from '@angular/common/http';
+import {PokeApiService} from './pokemon/pokeApi.service';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { PokemonPickerComponent } from './pokemon-picker/pokemon-picker.componen
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [
     BattleService,
     LogService,
+    PokeApiService
   ],
   bootstrap: [AppComponent]
 })
