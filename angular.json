@@ -81,7 +81,7 @@
           }
         },
         "test": {
-          "builder": "@angular-builders/jest:run",
+          "builder": "@angular-builders/jest:run"
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -109,6 +109,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Project"
+    }
+  },
+  "defaultProject": "Project",
+  "cli": {
+    "analytics": false
+  }
 }
