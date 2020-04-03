@@ -27,6 +27,6 @@
 <ng-template [ngIf]="pokemon1 && pokemon2">
 
   <div [ngStyle]="{textAlign: 'center'}">
-    <button (click)="startFight()" >PREPARE TO FIGHT !</button>
+    <a routerLink="battle" (click)="startFight()" >PREPARE TO FIGHT !</a>
   </div>
 </ng-template>
