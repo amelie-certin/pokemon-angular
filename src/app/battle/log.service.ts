@@ -5,7 +5,6 @@ import { Move } from '../../logic/move';
 @Injectable()
 export class LogService {
   private logs : string[] = [];
-  private winner : Pokemon;
 
   constructor() {
   }
@@ -16,13 +15,5 @@ export class LogService {
 
   getLogs() {
     return this.logs;
-  }
-
-  setWinner(winner : Pokemon) {
-    this.winner = winner;
-  }
-
-  getWinnerLog() {
-    return this.winner ? `Winner: ${this.winner.name}` : '';
   }
 }

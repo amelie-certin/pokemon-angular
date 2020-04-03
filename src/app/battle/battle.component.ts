@@ -9,17 +9,15 @@ import { LogService } from './log.service';
   styleUrls: ['./battle.component.scss']
 })
 export class BattleComponent implements OnInit {
-
   fighters: Pokemon[];
   running = false;
   action = 'Play';
   logs: string[] = [];
-  winnerLog = '';
 
-  constructor(private battleService : BattleService, logService : LogService) {
+  constructor(public battleService : BattleService, logService : LogService) {
     this.fighters = battleService.getFighters();
+    this.winner = battleService.getWinner();
     this.logs = logService.getLogs();
-    this.winnerLog = logService.getWinnerLog();
     this.battleService = battleService;
   }
 

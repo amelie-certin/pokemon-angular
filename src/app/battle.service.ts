@@ -6,6 +6,7 @@ import { LogService } from './battle/log.service';
 @Injectable()
 export class BattleService {
   private fighters: Pokemon[];
+  private winner: string;
 
   constructor(private logService : LogService) {
     this.logService = logService;
@@ -17,6 +18,10 @@ export class BattleService {
 
   getFighters() {
     return this.fighters;
+  }
+
+  getWinner() {
+    return this.winner;
   }
 
   async run() {

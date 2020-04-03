@@ -3,7 +3,8 @@
 <ul>
   <li *ngFor="let log of logs">{{log}}</li>
 </ul>
-<p [ngClass]="'winner-log'">{{winnerLog}}</p>
+<p [ngClass]="'winner-log'">{{battleService.getWinner()}}</p>
+
 <button type="button" (click)="toggleBattle()">
   {{action}}
 </button>
