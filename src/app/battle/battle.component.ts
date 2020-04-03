@@ -14,14 +14,14 @@ export class BattleComponent implements OnInit {
   action = 'Play';
   logs: string[] = [];
 
-  constructor(public battleService : BattleService, logService : LogService) {
-    this.fighters = battleService.getFighters();
-    this.winner = battleService.getWinner();
-    this.logs = logService.getLogs();
+  constructor(public battleService : BattleService, private logService : LogService) {
     this.battleService = battleService;
+    this.logService = logService;
   }
 
   ngOnInit(): void {
+    this.fighters = this.battleService.getFighters();
+    this.logs = this.logService.getLogs();
   }
 
   toggleBattle() {
