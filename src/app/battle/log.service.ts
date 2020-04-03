@@ -23,6 +23,6 @@ export class LogService {
   }
 
   getWinnerLog() {
-    return `Winner: ${this.winner.name}`
+    return this.winner ? `Winner: ${this.winner.name}` : '';
   }
 }
