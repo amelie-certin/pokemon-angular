@@ -76,7 +76,7 @@ export class PokemonPickerComponent implements OnInit {
             .setAttack(stats[4].base_stat)
             .setHp(stats[5].base_stat)
             .setMaxHp(stats[5].base_stat)
-            .setLevel(5).build();
+            .setLevel(1).build();
           this.listPokemon.push(pokemonObs);
         }));
     });

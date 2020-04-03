@@ -33,6 +33,6 @@ export class PokeApiService {
   }
 
   getPokemons(): Observable<ResultBatch>{
-    return this.http.get<ResultBatch>(`https://pokeapi.co/api/v2/pokemon/?limit=20/`);
+    return this.http.get<ResultBatch>(`https://pokeapi.co/api/v2/pokemon/?limit=40/`);
   }
 }
