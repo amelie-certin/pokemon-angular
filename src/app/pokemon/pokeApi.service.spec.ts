@@ -1,6 +1,6 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed, async } from '@angular/core/testing';
-import {PokeApiService} from './pokeApi.service';
+import {limitPokemon, PokeApiService} from './pokeApi.service';
 import {PokemonBuilder} from '../../logic/pokemon';
 import {movesCst} from '../pokemon-picker/pokemon-picker.component';
 
@@ -176,7 +176,7 @@ describe('PokeApiService', () => {
     const pokeApiService = TestBed.get(PokeApiService) as PokeApiService;
     const http = TestBed.get(HttpTestingController);
     pokeApiService.getPokemons().subscribe(resultObs => {
-        expect(resultObs.results.length).toBe(40);
+        expect(resultObs.results.length).toBe(limitPokemon);
         expect(resultObs.results).toBe(mockPokemonUrls);
     });
   }));

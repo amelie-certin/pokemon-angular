@@ -23,6 +23,8 @@ export interface ResultBatch{
   results: {name: string, url: string}[];
 }
 
+export const limitPokemon = 100;
+
 @Injectable()
 export class PokeApiService {
   constructor(private http: HttpClient) {
@@ -33,6 +35,6 @@ export class PokeApiService {
   }
 
   getPokemons(): Observable<ResultBatch>{
-    return this.http.get<ResultBatch>(`https://pokeapi.co/api/v2/pokemon/?limit=40/`);
+    return this.http.get<ResultBatch>(`https://pokeapi.co/api/v2/pokemon/?limit=${limitPokemon}/`);
   }
 }
