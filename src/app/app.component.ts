@@ -10,13 +10,13 @@ import { Pokemon } from '../logic/pokemon';
 
 export class AppComponent {
   title = 'Pokemon';
-  fighters : Pokemon[];
+  startFight = false;
 
   constructor(private battleService : BattleService) {
     this.battleService = battleService;
   }
 
   setFighters() {
-    this.fighters = this.battleService.getFighters();
+    this.startFight = true;
   }
 }
